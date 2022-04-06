@@ -26,8 +26,15 @@ When this number is added to the check digit, then the result must be an even mu
 The number is therefore valid. If the algorithm doesn't produce a multiple of 10, then the card number cannot be valid.
 """
 from verify_number import verify_credit_card_number
-#verificar se a pessoa digitou 16 digitos
+
 credit_card_number = input('Please inform your credit card number: ')
+
+while credit_card_number.isdigit() == False:
+    credit_card_number = input('The information provided is not a number.\nPlease inform your credit card number: ')
+
+while len(credit_card_number) != 16:
+    credit_card_number = input('The information provided does not contain 16 digits.\nPlease inform your credit card number: ')
+
 credit_card = []
 for digit in map(int,credit_card_number):
     credit_card.append(digit)
